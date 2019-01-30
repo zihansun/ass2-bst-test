@@ -164,10 +164,23 @@ void test_sample01() {
   cout << "Ending test_sample01" << endl;
 }
 
+/**
+ * Test functions by Ryan Warren
+ */
+
+void test_rwarren201() {
+    BST<int> b1;
+    assert(b1.Add(1));
+    assert(b1.Contains(1));
+    assert(!b1.Add(1));
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
   test_pisan02();
   test_pisan03();
   test_sample01();
+
+  test_rwarren201();
 }

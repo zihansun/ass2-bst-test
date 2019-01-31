@@ -164,10 +164,45 @@ void test_sample01() {
   cout << "Ending test_sample01" << endl;
 }
 
+// Test function (primarily Remove) by Anya Biryukova
+void test_biryua() {
+  BST<string> bt;
+  // Removing when there's an empty BST
+  bt.Remove("a");
+  // Adding nodes 
+  bt.Add("q");
+  bt.Add("u");
+  bt.Add("i");
+  bt.Add("c");
+  bt.Add("k");
+  bt.Add("l");
+  bt.Add("y");
+  assert(bt.NumberOfNodes() == 7);
+  // Removing something that doesn't exist
+  bt.Remove("z");
+  assert(bt.NumberOfNodes() == 7);
+  // Removing all nodes individually
+  bt.Remove("i");
+  assert(bt.NumberOfNodes() == 6);
+  assert(!bt.Contains("i"));
+  bt.Remove("q");
+  assert(bt.NumberOfNodes() == 5);
+  assert(!bt.Contains("q"));
+  bt.Remove("c");
+  bt.Remove("l");
+  bt.Remove("u");
+  bt.Remove("y");
+  bt.Remove("k");
+  assert(bt.NumberOfNodes() == 0);
+  assert(bt.IsEmpty());
+  cout << "Ending test_biryua" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
   test_pisan02();
   test_pisan03();
   test_sample01();
+  test_biryua();
 }

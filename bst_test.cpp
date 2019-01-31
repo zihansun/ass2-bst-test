@@ -227,6 +227,16 @@ void test_duy3101() {
   cout << "Ending test_duy3101" << endl;
 }
 
+// Tests the `Add` function by Ryan Warren
+void test_rwarren201() {
+    cout << "Starting test_rwarren201" << endl;
+    BST<int> b1;
+    assert(b1.Add(1));
+    assert(b1.Contains(1));
+    assert(!b1.Add(1));
+    cout << "Ending test_rwarren201" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -235,4 +245,5 @@ void testBSTAll() {
   test_sample01();
   test_biryua();
   test_duy3101();
+  test_rwarren201();
 }

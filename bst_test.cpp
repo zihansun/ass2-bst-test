@@ -228,7 +228,7 @@ void test_duy3101() {
 }
 
 void test_Jenna90() {
-    // One-Parameter constructor
+     // One-Parameter constructor
     BST<int> b1(1);
     // Adding items to BST
     b1.Add(4);
@@ -252,12 +252,16 @@ void test_Jenna90() {
     // removing values from BST
     // removing root
     b1.Remove(1);
+    assert(b1.Remove(1)==1);
     // removing 1 child node
     b1.Remove(4);
+    assert(b1.Remove(4)==1);
     // remove leaf node
     b1.Remove(9);
-    // remove non-BST node
+    assert(b1.Remove(9)==1);
+    // remove leaf node
     b1.Remove(0);
+    assert(b1.Remove(0)==0);
 
     // reset stringstream
     TreeVisitor::ResetSS();

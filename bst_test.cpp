@@ -227,6 +227,53 @@ void test_duy3101() {
   cout << "Ending test_duy3101" << endl;
 }
 
+void test_Jenna90() {
+    // One-Parameter constructor
+    BST<int> b1(1);
+    // Adding items to BST
+    b1.Add(4);
+    b1.Add(8);
+    b1.Add(3);
+    b1.Add(12);
+    b1.Add(9);
+    b1.Add(-24);
+    // adding duplicate item
+    b1.Add(4);
+    TreeVisitor::ResetSS();
+    b1.InorderTraverse(TreeVisitor::visitor);
+    string result = "-241348912";
+    // asserting it outputs without duplicate
+    assert(TreeVisitor::GetSS() == result);
+    // get the height of the tree
+    assert(b1.getHeight() == 5);
+    // get the number of nodes in the tree
+    assert(b1.NumberOfNodes() == 7);
+
+    // removing values from BST
+    // removing root
+    b1.Remove(1);
+    // removing 1 child node
+    b1.Remove(4);
+    // remove leaf node
+    b1.Remove(9);
+    // remove non-BST node
+    b1.Remove(0);
+
+    // reset stringstream
+    TreeVisitor::ResetSS();
+    b1.InorderTraverse(TreeVisitor::visitor);
+    result = "-243812";
+    // testing that the removal works
+    assert(TreeVisitor::GetSS() == result);
+    // BST test height after removal
+    assert(b1.getHeight() == 3);
+    // test number of nodes in BST
+    assert(b1.NumberOfNodes() == 4);
+
+    // Yay, you did it!
+    cout << "Ending test_Jenna90" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -235,4 +282,5 @@ void testBSTAll() {
   test_sample01();
   test_biryua();
   test_duy3101();
+  test_Jenna90()
 }

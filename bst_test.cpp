@@ -303,6 +303,30 @@ void test_lizzypld() {
     assert(arrayTree1 == arrayTree2);
 }
 
+void test_philip12(){
+  BST<int> binary(10);
+  binary.Add(5);
+  binary.Add(15);
+  binary.Add(7);
+  binary.Add(13);
+  binary.Add(3);
+  binary.Add(17);
+  binary.Add(2);
+  binary.Add(12);
+  binary.Add(1);
+  cout << binary << endl;
+  assert(binary.getHeight() == 5);
+  assert(binary.NumberOfNodes() == 10);
+  cout << "Remove 10" << endl;
+  binary.Remove(10);
+  assert(binary.NumberOfNodes() == 9);
+  binary.Rebalance();
+  cout << "Rebalancing" << endl;
+  cout << binary << endl;
+  binary.Clear();
+  assert(binary.IsEmpty());
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -313,4 +337,5 @@ void testBSTAll() {
   test_duy3101();
   test_Jenna90();
   test_lizzypld();
+  test_philip12();
 }

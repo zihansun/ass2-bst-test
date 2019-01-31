@@ -198,6 +198,35 @@ void test_biryua() {
   cout << "Ending test_biryua" << endl;
 }
 
+void test_duy3101() {
+  BST<int> b1;
+  b1.Add(1);
+  b1.Add(2);
+  b1.Add(3);
+  b1.Add(4);
+  b1.Add(5);
+  b1.Add(6);
+  b1.Add(7);
+  assert(b1.NumberOfNodes() == 7);
+  assert(b1.getHeight() == 7);
+  assert(!b1.IsEmpty());
+
+  BST<int> b2 = b1;
+  b2.Clear();
+  assert(b2.NumberOfNodes() == 0);
+  assert(b2.getHeight() == 0);
+  assert(b2.IsEmpty());
+  b2.Add(1);
+  assert(b2.NumberOfNodes() == 1);
+  assert(b2.getHeight() == 1);
+  assert(!b2.IsEmpty());
+  b2.Add(2);
+  assert(b2.NumberOfNodes() == 2);
+  assert(b2.getHeight() == 2);
+  assert(!b2.IsEmpty());
+  cout << "Ending test_duy3101" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -205,4 +234,5 @@ void testBSTAll() {
   test_pisan03();
   test_sample01();
   test_biryua();
+  test_duy3101();
 }

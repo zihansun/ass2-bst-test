@@ -164,15 +164,67 @@ void test_sample01() {
   cout << "Ending test_sample01" << endl;
 }
 
-/**
- * Test functions by Ryan Warren
- */
+// Test function (primarily Remove) by Anya Biryukova
+void test_biryua() {
+  BST<string> bt;
+  // Removing when there's an empty BST
+  bt.Remove("a");
+  // Adding nodes
+  bt.Add("q");
+  bt.Add("u");
+  bt.Add("i");
+  bt.Add("c");
+  bt.Add("k");
+  bt.Add("l");
+  bt.Add("y");
+  assert(bt.NumberOfNodes() == 7);
+  // Removing something that doesn't exist
+  bt.Remove("z");
+  assert(bt.NumberOfNodes() == 7);
+  // Removing all nodes individually
+  bt.Remove("i");
+  assert(bt.NumberOfNodes() == 6);
+  assert(!bt.Contains("i"));
+  bt.Remove("q");
+  assert(bt.NumberOfNodes() == 5);
+  assert(!bt.Contains("q"));
+  bt.Remove("c");
+  bt.Remove("l");
+  bt.Remove("u");
+  bt.Remove("y");
+  bt.Remove("k");
+  assert(bt.NumberOfNodes() == 0);
+  assert(bt.IsEmpty());
+  cout << "Ending test_biryua" << endl;
+}
 
-void test_rwarren201() {
-    BST<int> b1;
-    assert(b1.Add(1));
-    assert(b1.Contains(1));
-    assert(!b1.Add(1));
+void test_duy3101() {
+  BST<int> b1;
+  b1.Add(1);
+  b1.Add(2);
+  b1.Add(3);
+  b1.Add(4);
+  b1.Add(5);
+  b1.Add(6);
+  b1.Add(7);
+  assert(b1.NumberOfNodes() == 7);
+  assert(b1.getHeight() == 7);
+  assert(!b1.IsEmpty());
+
+  BST<int> b2 = b1;
+  b2.Clear();
+  assert(b2.NumberOfNodes() == 0);
+  assert(b2.getHeight() == 0);
+  assert(b2.IsEmpty());
+  b2.Add(1);
+  assert(b2.NumberOfNodes() == 1);
+  assert(b2.getHeight() == 1);
+  assert(!b2.IsEmpty());
+  b2.Add(2);
+  assert(b2.NumberOfNodes() == 2);
+  assert(b2.getHeight() == 2);
+  assert(!b2.IsEmpty());
+  cout << "Ending test_duy3101" << endl;
 }
 
 // Calling all test functions
@@ -181,6 +233,6 @@ void testBSTAll() {
   test_pisan02();
   test_pisan03();
   test_sample01();
-
-  test_rwarren201();
+  test_biryua();
+  test_duy3101();
 }

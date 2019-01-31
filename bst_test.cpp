@@ -274,6 +274,31 @@ void test_Jenna90() {
     cout << "Ending test_Jenna90" << endl;
 }
 
+// Test array constructor on pre-sorted list
+void test_lizzypld() {
+    // create local scope array
+    string arr[6]{"a", "b", "c", "x", "y", "z"};
+    // construct tree
+    BST<string> arrayTree1(arr, 6);
+    // test that array is not empty
+    assert(!arrayTree1.IsEmpty());
+    // test that array has all 6 items
+    assert(arrayTree1.NumberOfNodes() == 6);
+    // test that array is balanced correctly per assignment specifications
+    assert(arrayTree1.getHeight() == 3);
+    
+    // create another tree from same array
+    BST<string> arrayTree2(arr, 6);
+    // test that 2nd array is not empty
+    assert(!arrayTree2.IsEmpty());
+    // test that 2nd array has all 6 items
+    assert(arrayTree2.NumberOfNodes() == 6);
+    // test that 2nd array is balanced correctly per assignment specifications
+    assert(arrayTree2.getHeight() == 3);
+    // confirm that the two trees are identical
+    assert(arrayTree1 == arrayTree2);
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -282,5 +307,6 @@ void testBSTAll() {
   test_sample01();
   test_biryua();
   test_duy3101();
-  test_Jenna90()
+  test_Jenna90();
+  test_lizzypld();
 }

@@ -323,6 +323,23 @@ void test_philip12(){
   assert(binary.IsEmpty());
 }
 
+void test_mcmelton() {
+  BST<string> test1;
+  test1.Add("e");
+  test1.Add("f");
+  test1.Add("h");
+  test1.Add("g");
+  test1.Add("j");
+  test1.Add("c");
+  test1.Add("a");
+  test1.Add("b");
+  cout << test1 << endl;
+  test1.Remove("e");
+  cout << test1 << endl;
+  bool removeCheck = test1.Remove("e");
+  assert(removeCheck == false);
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -334,4 +351,5 @@ void testBSTAll() {
   test_Jenna90();
   test_lizzypld();
   test_philip12();
+  test_mcmelton();
 }

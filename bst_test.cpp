@@ -340,6 +340,55 @@ void test_mcmelton() {
   assert(removeCheck == false);
 }
 
+void test_samford01() {
+    cout << "\n\n* Starting test_samford01 *" << endl;
+    //----- constructors and additions -----
+    BST<string> b1;
+    BST<string> b2;
+    BST<string> b3;
+    BST<string> b4;
+
+    b1.Add("d");
+    b1.Add("a");
+    b1.Add("f");
+    b1.Add("g");
+    b1.Add("x");
+    b1.Add("b");
+    b1.Add("e");
+    b1.Add("c");
+    b2.Add("c");
+    b2.Add("a");
+    b2.Add("f");
+    b2.Add("g");
+    b2.Add("x");
+    b3.Add("b");
+
+    //----- isEmpty -----
+    assert(b4.IsEmpty() == true);
+    assert(b1.IsEmpty() == false);
+
+    //----- getHeight -----
+    assert(b4.getHeight() == 0);
+    assert(b3.getHeight() == 1);
+    assert(b1.getHeight() == 4);
+
+    //----- NumberOfNodes -----
+    assert(b1.NumberOfNodes() == 8);
+    assert(b2.NumberOfNodes() == 5);
+    assert(b3.NumberOfNodes() == 1);
+
+    //----- Contains / Remove -----
+    assert(b1.Contains("g"));
+    b1.Remove("g");
+    b1.Remove("f");
+    b1.Remove("b");
+    assert(!(b1.Contains("g")));
+
+    //----- Rebalance -----
+    b1.Rebalance();
+    cout << "test_samford01 done!" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -352,4 +401,5 @@ void testBSTAll() {
   test_lizzypld();
   test_philip12();
   test_mcmelton();
+  test_samford01();
 }

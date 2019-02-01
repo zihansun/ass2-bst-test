@@ -251,17 +251,13 @@ void test_Jenna90() {
 
     // removing values from BST
     // removing root
-    b1.Remove(1);
-    assert(b1.Remove(1)==1);
+    assert(b1.Remove(1) == 1);
     // removing 1 child node
-    b1.Remove(4);
-    assert(b1.Remove(4)==1);
+    assert(b1.Remove(4) == 1);
     // remove leaf node
-    b1.Remove(9);
-    assert(b1.Remove(9)==1);
+    assert(b1.Remove(9) == 1);
     // remove leaf node
-    b1.Remove(0);
-    assert(b1.Remove(0)==0);
+    assert(b1.Remove(0) == 0);
 
     // reset stringstream
     TreeVisitor::ResetSS();

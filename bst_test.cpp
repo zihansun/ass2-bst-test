@@ -389,6 +389,42 @@ void test_samford01() {
     cout << "test_samford01 done!" << endl;
 }
 
+void test_ravsneha() {
+  cout << "SNEHA'S TESTS ARE STARTING" << endl; 
+  BST<string> b1;
+  b1.Add("s");
+  b1.Add("n");
+  b1.Add("e");
+  b1.Add("h");
+  b1.Add("a");
+ 
+  BST<string> b2;
+  b2.Add("s");
+  b2.Add("n");
+  b2.Add("e");
+  b2.Add("h");
+  b2.Add("a");
+ 
+  //Print th
+  cout << b1 << endl;
+  cout << b2 << endl;
+ 
+  cout << "Testing Equals Operator (true)" << endl;
+  bool testBool = (b1==b2);
+  assert(testBool == true);
+ 
+  cout << "Testing Remove (true)" << endl;
+  bool testBool1 = b1.Remove("a");
+  cout << b1 << endl;
+  assert(testBool1 == true);
+ 
+  cout << "Testing Equals Operator (false)" << endl;
+  bool testBool2 = (b1 == b2);
+  assert(testBool2 == false);
+ 
+  cout << "SNEHA'S TESTS ARE COMPLETE" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -402,4 +438,5 @@ void testBSTAll() {
   test_philip12();
   test_mcmelton();
   test_samford01();
+  test_ravsneha();
 }

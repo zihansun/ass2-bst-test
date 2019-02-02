@@ -493,6 +493,33 @@ void test_iqbalo01(){
     cout << "Ending test_iqbalo01" << endl;
 }
 
+void test_sorvik01() {
+  cout << "beginning tests" << endl;
+  // creating a test tree
+  BST<string> tester123;
+  tester123.Add("a");
+  tester123.Add("z");
+  tester123.Add("c");
+  tester123.Add("w");
+  tester123.Add("y");
+  tester123.Add("e");
+  // creating a second identical test tree
+  BST<string> tester345;
+  tester345.Add("a");
+  tester345.Add("z");
+  tester345.Add("c");
+  tester345.Add("w");
+  tester345.Add("y");
+  tester345.Add("e");
+  //testing the isEmpty() function
+  assert(!tester123.IsEmpty());
+  assert(!tester345.IsEmpty());
+  //testing the == operator
+  assert(tester123 == tester345);
+  cout << "testing done" << endl;
+}
+
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -510,4 +537,5 @@ void testBSTAll() {
   test_Nabu99();
   test_dsagredo();
   test_iqbalo01();
+  test_sorvik01();
 }

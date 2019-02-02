@@ -446,16 +446,6 @@ void test_Nabu99(){
   cout << "End tests!!" << endl;
 }
 
-<<<<<<< HEAD
-// Tests the `Add` function by Ryan Warren
-void test_rwarren201() {
-    cout << "Starting test_rwarren201" << endl;
-    BST<int> b1;
-    assert(b1.Add(1));
-    assert(b1.Contains(1));
-    assert(!b1.Add(1));
-    cout << "Ending test_rwarren201" << endl;
-=======
 void test_dsagredo()
 {
 	cout << "Initiating test protocol alpha bravo foxtrot dsagredo" << endl;
@@ -621,7 +611,23 @@ void test_wot01() {
     b2.Remove("b");
     std::cout << "b2 without b:" << std::endl;
     std::cout << b2 << std::endl;
->>>>>>> 8056fa4c628e9198ffb8d308944fabe49f6bc1d4
+}
+
+// tests the clear operation of BST
+void test_rwarren201() {
+    cout << "Starting testBSTClear..." << endl;
+
+    BST<int> b1;
+    b1.Add(4);
+    b1.Add(2);
+    b1.Add(3);
+    b1.Add(1);
+    b1.Add(5);
+    assert(b1.NumberOfNodes() == 5);
+    b1.Clear();
+    assert(b1.IsEmpty());
+
+    cout << "...Done testBSTClear" << endl;
 }
 
 // Calling all test functions
@@ -639,13 +645,10 @@ void testBSTAll() {
   test_samford01();
   test_ravsneha();
   test_Nabu99();
-<<<<<<< HEAD
-  test_rwarren201();
-=======
   test_dsagredo();
   test_iqbalo01();
   test_msorvik01();
   test_rileyk9();
   test_wot01();
->>>>>>> 8056fa4c628e9198ffb8d308944fabe49f6bc1d4
+  test_rwarren201();
 }

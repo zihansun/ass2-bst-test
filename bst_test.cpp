@@ -445,6 +445,26 @@ void test_Nabu99(){
   cout << "End tests!!" << endl;
 }
 
+void test_dsagredo()
+{
+	cout << "Initiating test protocol alpha bravo foxtrot dsagredo" << endl;
+	BST<string> tree;
+	cout << "Testing Contains, Clear, & isEmpty methods" << endl;
+	tree.Add("a");
+	tree.Add("b");
+	tree.Add("c");
+	tree.Add("d");
+	tree.Add("e");
+	// Testing contains
+	assert(tree.Contains("c") == true);
+	assert(tree.Contains("y") == false);
+	// Testing clear/isEmpty
+	tree.Clear();
+	assert(tree.IsEmpty() == true);
+	assert(tree.Contains("c") == false);
+	cout << "Ending test protocol alpha bravo foxtrot dsagredo" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -460,4 +480,5 @@ void testBSTAll() {
   test_samford01();
   test_ravsneha();
   test_Nabu99();
+  test_dsagredo();
 }

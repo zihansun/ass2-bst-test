@@ -321,6 +321,7 @@ void test_philip12(){
   cout << binary << endl;
   binary.Clear();
   assert(binary.IsEmpty());
+  cout << "test_philip12 done" << endl;
 }
 
 void test_mcmelton() {
@@ -445,6 +446,7 @@ void test_Nabu99(){
   cout << "End tests!!" << endl;
 }
 
+<<<<<<< HEAD
 // Tests the `Add` function by Ryan Warren
 void test_rwarren201() {
     cout << "Starting test_rwarren201" << endl;
@@ -453,6 +455,173 @@ void test_rwarren201() {
     assert(b1.Contains(1));
     assert(!b1.Add(1));
     cout << "Ending test_rwarren201" << endl;
+=======
+void test_dsagredo()
+{
+	cout << "Initiating test protocol alpha bravo foxtrot dsagredo" << endl;
+	BST<string> tree;
+	cout << "Testing Contains, Clear, & isEmpty methods" << endl;
+	tree.Add("a");
+	tree.Add("b");
+	tree.Add("c");
+	tree.Add("d");
+	tree.Add("e");
+	// Testing contains
+	assert(tree.Contains("c") == true);
+	assert(tree.Contains("y") == false);
+	// Testing clear/isEmpty
+	tree.Clear();
+	assert(tree.IsEmpty() == true);
+	assert(tree.Contains("c") == false);
+	cout << "Ending test protocol alpha bravo foxtrot dsagredo" << endl;
+}
+
+void test_iqbalo01(){
+    cout << "Starting test_iqbalo01" << endl;
+    BST<int> tree1;
+    BST<int> tree2;
+
+    tree1.Add(3);
+    tree1.Add(2);
+    tree1.Add(4);
+    tree1.Add(1);
+    tree1.Add(6);
+    tree1.Add(8);
+    tree1.Add(5);
+
+    tree2.Add(3);
+    tree2.Add(2);
+    tree2.Add(4);
+    tree2.Add(1);
+    tree2.Add(6);
+    tree2.Add(8);
+    tree2.Add(5);
+
+    assert(tree1.IsEmpty() == false);
+    assert(tree1 == tree2);
+    tree1.Remove(3);
+    assert(tree1 != tree2);
+    cout << "Ending test_iqbalo01" << endl;
+}
+
+void test_msorvik01() {
+  cout << "beginning tests" << endl;
+  // creating a test tree
+  BST<string> tester123;
+  tester123.Add("a");
+  tester123.Add("z");
+  tester123.Add("c");
+  tester123.Add("w");
+  tester123.Add("y");
+  tester123.Add("e");
+  // creating a second identical test tree
+  BST<string> tester345;
+  tester345.Add("a");
+  tester345.Add("z");
+  tester345.Add("c");
+  tester345.Add("w");
+  tester345.Add("y");
+  tester345.Add("e");
+  //testing the isEmpty() function
+  assert(!tester123.IsEmpty());
+  assert(!tester345.IsEmpty());
+  //testing the == operator
+  assert(tester123 == tester345);
+  cout << "testing done" << endl;
+}
+
+void test_rileyk9() {
+  string arr[15] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+    "L", "M", "N", "O"};
+  BST<string> tree(arr, 15);
+
+  cout << tree << endl;
+
+  tree.Clear();
+  tree.Add("A");
+  tree.Add("B");
+  tree.Add("C");
+  tree.Add("D");
+  tree.Add("E");
+  tree.Add("F");
+  tree.Add("G");
+
+  BST<string> tree2;
+  tree2.Add("D");
+  tree2.Add("F");
+  tree2.Add("E");
+  tree2.Add("G");
+  tree2.Add("B");
+  tree2.Add("A");
+  tree2.Add("C");
+
+  tree.Rebalance();
+
+  assert(tree == tree2);
+
+  cout << "Done test_rileyk9()" << endl;
+}
+
+void test_wot01() {
+    BST<int> b1;
+    BST<string> b2;
+    b1.Add(6);
+    b1.Add(5);
+    b1.Add(4);
+    b1.Add(3);
+    b1.Add(2);
+    b1.Add(1);
+
+    b1.InorderTraverse(TreeVisitor::visitor);
+    string result = "123456";
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    b1.PostorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    b1.PreorderTraverse(TreeVisitor::visitor);
+    result = "654321";
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    // Testing Rebalance for ints
+    std::cout << "b1 before rebalance:" << std::endl;
+    std::cout << b1 << std::endl;
+    b1.Rebalance();
+    std::cout << "b1 after rebalance:" << std::endl;
+    std::cout << b1 << std::endl;
+    b2.Add("b");
+    b2.Add("c");
+    b2.Add("d");
+    b2.Add("a");
+    b2.Add("x");
+
+    b2.InorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "abcdx");
+    TreeVisitor::ResetSS();
+
+    b2.PostorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "axdcb");
+    TreeVisitor::ResetSS();
+
+    b2.PreorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "bacdx");
+    TreeVisitor::ResetSS();
+
+    // Testing Rebalance for strings
+    std::cout << "b2 before rebalance:" << std::endl;
+    std::cout << b2 << std::endl;
+    b2.Rebalance();
+    b2.Rebalance();
+    std::cout << "b2 after rebalance:" << std::endl;
+    std::cout << b2 << std::endl;
+    assert(b2.IsEmpty() == false);
+    b2.Remove("b");
+    std::cout << "b2 without b:" << std::endl;
+    std::cout << b2 << std::endl;
+>>>>>>> 8056fa4c628e9198ffb8d308944fabe49f6bc1d4
 }
 
 // Calling all test functions
@@ -470,5 +639,13 @@ void testBSTAll() {
   test_samford01();
   test_ravsneha();
   test_Nabu99();
+<<<<<<< HEAD
   test_rwarren201();
+=======
+  test_dsagredo();
+  test_iqbalo01();
+  test_msorvik01();
+  test_rileyk9();
+  test_wot01();
+>>>>>>> 8056fa4c628e9198ffb8d308944fabe49f6bc1d4
 }

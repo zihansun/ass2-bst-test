@@ -227,6 +227,7 @@ void test_duy3101() {
   cout << "Ending test_duy3101" << endl;
 }
 
+<<<<<<< HEAD
 // Tests the `Add` function by Ryan Warren
 void test_rwarren201() {
     cout << "Starting test_rwarren201" << endl;
@@ -235,6 +236,102 @@ void test_rwarren201() {
     assert(b1.Contains(1));
     assert(!b1.Add(1));
     cout << "Ending test_rwarren201" << endl;
+=======
+void test_Jenna90() {
+     // One-Parameter constructor
+    BST<int> b1(1);
+    // Adding items to BST
+    b1.Add(4);
+    b1.Add(8);
+    b1.Add(3);
+    b1.Add(12);
+    b1.Add(9);
+    b1.Add(-24);
+    // adding duplicate item
+    b1.Add(4);
+    TreeVisitor::ResetSS();
+    b1.InorderTraverse(TreeVisitor::visitor);
+    string result = "-241348912";
+    // asserting it outputs without duplicate
+    assert(TreeVisitor::GetSS() == result);
+    // get the height of the tree
+    assert(b1.getHeight() == 5);
+    // get the number of nodes in the tree
+    assert(b1.NumberOfNodes() == 7);
+
+    // removing values from BST
+    // removing root
+    assert(b1.Remove(1) == 1);
+    // removing 1 child node
+    assert(b1.Remove(4) == 1);
+    // remove leaf node
+    assert(b1.Remove(9) == 1);
+    // remove leaf node
+    assert(b1.Remove(0) == 0);
+
+    // reset stringstream
+    TreeVisitor::ResetSS();
+    b1.InorderTraverse(TreeVisitor::visitor);
+    result = "-243812";
+    // testing that the removal works
+    assert(TreeVisitor::GetSS() == result);
+    // BST test height after removal
+    assert(b1.getHeight() == 3);
+    // test number of nodes in BST
+    assert(b1.NumberOfNodes() == 4);
+
+    // Yay, you did it!
+    cout << "Ending test_Jenna90" << endl;
+}
+
+// Test array constructor on pre-sorted list
+void test_lizzypld() {
+    // create local scope array
+    string arr[6]{"a", "b", "c", "x", "y", "z"};
+    // construct tree
+    BST<string> arrayTree1(arr, 6);
+    // test that array is not empty
+    assert(!arrayTree1.IsEmpty());
+    // test that array has all 6 items
+    assert(arrayTree1.NumberOfNodes() == 6);
+    // test that array is balanced correctly per assignment specifications
+    assert(arrayTree1.getHeight() == 3);
+    
+    // create another tree from same array
+    BST<string> arrayTree2(arr, 6);
+    // test that 2nd array is not empty
+    assert(!arrayTree2.IsEmpty());
+    // test that 2nd array has all 6 items
+    assert(arrayTree2.NumberOfNodes() == 6);
+    // test that 2nd array is balanced correctly per assignment specifications
+    assert(arrayTree2.getHeight() == 3);
+    // confirm that the two trees are identical
+    assert(arrayTree1 == arrayTree2);
+}
+
+void test_philip12(){
+  BST<int> binary(10);
+  binary.Add(5);
+  binary.Add(15);
+  binary.Add(7);
+  binary.Add(13);
+  binary.Add(3);
+  binary.Add(17);
+  binary.Add(2);
+  binary.Add(12);
+  binary.Add(1);
+  cout << binary << endl;
+  assert(binary.getHeight() == 5);
+  assert(binary.NumberOfNodes() == 10);
+  cout << "Remove 10" << endl;
+  binary.Remove(10);
+  assert(binary.NumberOfNodes() == 9);
+  binary.Rebalance();
+  cout << "Rebalancing" << endl;
+  cout << binary << endl;
+  binary.Clear();
+  assert(binary.IsEmpty());
+>>>>>>> cfd9377d60d59438fecc84c8dff643d5d1541c0a
 }
 
 // Calling all test functions
@@ -245,5 +342,11 @@ void testBSTAll() {
   test_sample01();
   test_biryua();
   test_duy3101();
+<<<<<<< HEAD
   test_rwarren201();
+=======
+  test_Jenna90();
+  test_lizzypld();
+  test_philip12();
+>>>>>>> cfd9377d60d59438fecc84c8dff643d5d1541c0a
 }

@@ -321,6 +321,7 @@ void test_philip12(){
   cout << binary << endl;
   binary.Clear();
   assert(binary.IsEmpty());
+  cout << "test_philip12 done" << endl;
 }
 
 void test_mcmelton() {

@@ -18,7 +18,11 @@
 
 #include <iostream>
 #include <sstream>
-#include <cassert>
+
+#include "joshassert.h"
+#undef assert
+#define assert JOSH_ASSERT
+
 #include <string>
 
 #include "bst.hpp"
@@ -440,7 +444,7 @@ void test_Nabu99(){
   tree2.Add(5);
   tree2.Add(4);
 
-  assert(tree1.IsEmpty == false);
+  assert(tree1.IsEmpty() == false);
   assert(tree2.getHeight() == 2);
   assert(tree1.NumberOfNodes() == 5);
   cout << "End tests!!" << endl;
@@ -651,4 +655,8 @@ void testBSTAll() {
   test_rileyk9();
   test_wot01();
   test_rwarren201();
+}
+
+TEST_CASE("BST Tests") {
+  testBSTAll();
 }

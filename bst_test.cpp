@@ -465,6 +465,34 @@ void test_dsagredo()
 	cout << "Ending test protocol alpha bravo foxtrot dsagredo" << endl;
 }
 
+void test_iqbalo01(){
+    cout << "Starting test_iqbalo01" << endl;
+    BST<int> tree1;
+    BST<int> tree2;
+
+    tree1.Add(3);
+    tree1.Add(2);
+    tree1.Add(4);
+    tree1.Add(1);
+    tree1.Add(6);
+    tree1.Add(8);
+    tree1.Add(5);
+
+    tree2.Add(3);
+    tree2.Add(2);
+    tree2.Add(4);
+    tree2.Add(1);
+    tree2.Add(6);
+    tree2.Add(8);
+    tree2.Add(5);
+
+    assert(tree1.IsEmpty() == false);
+    assert(tree1 == tree2);
+    tree1.Remove(3);
+    assert(tree1 != tree2);
+    cout << "Ending test_iqbalo01" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -481,4 +509,5 @@ void testBSTAll() {
   test_ravsneha();
   test_Nabu99();
   test_dsagredo();
+  test_iqbalo01();
 }

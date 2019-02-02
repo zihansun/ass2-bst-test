@@ -493,7 +493,7 @@ void test_iqbalo01(){
     cout << "Ending test_iqbalo01" << endl;
 }
 
-void test_sorvik01() {
+void test_msorvik01() {
   cout << "beginning tests" << endl;
   // creating a test tree
   BST<string> tester123;
@@ -537,5 +537,5 @@ void testBSTAll() {
   test_Nabu99();
   test_dsagredo();
   test_iqbalo01();
-  test_sorvik01();
+  test_msorvik01();
 }

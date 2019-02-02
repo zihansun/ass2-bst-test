@@ -227,16 +227,6 @@ void test_duy3101() {
   cout << "Ending test_duy3101" << endl;
 }
 
-<<<<<<< HEAD
-// Tests the `Add` function by Ryan Warren
-void test_rwarren201() {
-    cout << "Starting test_rwarren201" << endl;
-    BST<int> b1;
-    assert(b1.Add(1));
-    assert(b1.Contains(1));
-    assert(!b1.Add(1));
-    cout << "Ending test_rwarren201" << endl;
-=======
 void test_Jenna90() {
      // One-Parameter constructor
     BST<int> b1(1);
@@ -296,7 +286,7 @@ void test_lizzypld() {
     assert(arrayTree1.NumberOfNodes() == 6);
     // test that array is balanced correctly per assignment specifications
     assert(arrayTree1.getHeight() == 3);
-    
+
     // create another tree from same array
     BST<string> arrayTree2(arr, 6);
     // test that 2nd array is not empty
@@ -331,7 +321,128 @@ void test_philip12(){
   cout << binary << endl;
   binary.Clear();
   assert(binary.IsEmpty());
->>>>>>> cfd9377d60d59438fecc84c8dff643d5d1541c0a
+}
+
+void test_mcmelton() {
+  BST<string> test1;
+  test1.Add("e");
+  test1.Add("f");
+  test1.Add("h");
+  test1.Add("g");
+  test1.Add("j");
+  test1.Add("c");
+  test1.Add("a");
+  test1.Add("b");
+  cout << test1 << endl;
+  test1.Remove("e");
+  cout << test1 << endl;
+  bool removeCheck = test1.Remove("e");
+  assert(removeCheck == false);
+}
+
+void test_samford01() {
+    cout << "\n\n* Starting test_samford01 *" << endl;
+    //----- constructors and additions -----
+    BST<string> b1;
+    BST<string> b2;
+    BST<string> b3;
+    BST<string> b4;
+
+    b1.Add("d");
+    b1.Add("a");
+    b1.Add("f");
+    b1.Add("g");
+    b1.Add("x");
+    b1.Add("b");
+    b1.Add("e");
+    b1.Add("c");
+    b2.Add("c");
+    b2.Add("a");
+    b2.Add("f");
+    b2.Add("g");
+    b2.Add("x");
+    b3.Add("b");
+
+    //----- isEmpty -----
+    assert(b4.IsEmpty() == true);
+    assert(b1.IsEmpty() == false);
+
+    //----- getHeight -----
+    assert(b4.getHeight() == 0);
+    assert(b3.getHeight() == 1);
+    assert(b1.getHeight() == 4);
+
+    //----- NumberOfNodes -----
+    assert(b1.NumberOfNodes() == 8);
+    assert(b2.NumberOfNodes() == 5);
+    assert(b3.NumberOfNodes() == 1);
+
+    //----- Contains / Remove -----
+    assert(b1.Contains("g"));
+    b1.Remove("g");
+    b1.Remove("f");
+    b1.Remove("b");
+    assert(!(b1.Contains("g")));
+
+    //----- Rebalance -----
+    b1.Rebalance();
+    cout << "test_samford01 done!" << endl;
+}
+
+void test_ravsneha() {
+  cout << "SNEHA'S TESTS ARE STARTING" << endl;
+  BST<string> b1;
+  b1.Add("s");
+  b1.Add("n");
+  b1.Add("e");
+  b1.Add("h");
+  b1.Add("a");
+
+  BST<string> b2;
+  b2.Add("s");
+  b2.Add("n");
+  b2.Add("e");
+  b2.Add("h");
+  b2.Add("a");
+
+  //Print th
+  cout << b1 << endl;
+  cout << b2 << endl;
+
+  cout << "Testing Equals Operator (true)" << endl;
+  bool testBool = (b1==b2);
+  assert(testBool == true);
+
+  cout << "Testing Remove (true)" << endl;
+  bool testBool1 = b1.Remove("a");
+  cout << b1 << endl;
+  assert(testBool1 == true);
+
+  cout << "Testing Equals Operator (false)" << endl;
+  bool testBool2 = (b1 == b2);
+  assert(testBool2 == false);
+
+  cout << "SNEHA'S TESTS ARE COMPLETE" << endl;
+}
+
+void test_Nabu99(){
+  cout << "Starting tests Nabu99: " << endl;
+  BST<int> tree1;
+  BST<int> tree2;
+
+  tree1.Add(1);
+  tree1.Add(3);
+  tree1.Add(2);
+  tree1.Add(10);
+  tree1.Add(7);
+  tree2.Add(2);
+  tree2.Add(5);
+  tree2.Add(4);
+
+  assert(tree1.IsEmpty == false);
+  assert(tree2.getHeight() == 2);
+  assert(tree1.NumberOfNodes() == 5);
+  cout << "End tests!!" << endl;
 }
 
 // Calling all test functions
@@ -342,11 +453,14 @@ void testBSTAll() {
   test_sample01();
   test_biryua();
   test_duy3101();
-<<<<<<< HEAD
-  test_rwarren201();
-=======
   test_Jenna90();
   test_lizzypld();
   test_philip12();
->>>>>>> cfd9377d60d59438fecc84c8dff643d5d1541c0a
+<<<<<<< HEAD
+=======
+  test_mcmelton();
+  test_samford01();
+  test_ravsneha();
+  test_Nabu99();
+>>>>>>> be83f8c5418ea38ff49846646a86d8284e2bd042
 }

@@ -630,6 +630,40 @@ void test_rwarren201() {
     cout << "...Done testBSTClear" << endl;
 }
 
+void test_jhpp114() {
+  cout << "Starting test_jhpp114" << endl;
+  cout << "Test add, numberOfNode function" << endl;
+  BST<int> b1;
+  b1.Add(1);
+  assert(b1.NumberOfNodes() == 1);
+  b1.Add(2);
+  b1.Add(3);
+  b1.Add(4);
+  b1.Add(5);
+  b1.Add(6);
+  assert(b1.Contains(1));
+  assert(b1.Contains(2));
+  assert(b1.Contains(6));
+  assert(!b1.Contains(8));
+  cout << "Contain pass" << endl;
+  assert(b1.NumberOfNodes() == 6);
+  cout << "Pass number of nodes" << endl;
+  assert(b1.getHeight() == 6);
+  cout << "Testing isEmpty, clear, != operator" << endl;
+  cout << "Pass Get Height" << endl;
+  assert(b1.IsEmpty() == 0);
+  cout << "Pass isEmpty" << endl;
+  b1.Clear();
+  assert(b1.IsEmpty() == 1);
+  assert(b1.NumberOfNodes() == 0);
+  cout << "Pass clear" << endl;
+  BST<int> b2;
+  b2.Add(1);
+  assert(b1 != b2);
+  cout << "pass !=" << endl;
+  cout << "Ending test_jhpp114" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -651,4 +685,5 @@ void testBSTAll() {
   test_rileyk9();
   test_wot01();
   test_rwarren201();
+	test_jhpp114();
 }

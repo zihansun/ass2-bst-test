@@ -664,6 +664,21 @@ void test_jhpp114() {
   cout << "Ending test_jhpp114" << endl;
 }
 
+void test_Brian-Hou() {
+    cout << "Testing Constructor passing in an array and int" << endl;
+    cout << "Also tests InorderTraveral in the process!" << endl;
+    string testArray[5] = {"3", "2", "1", "4", "5"};
+    int testArrayLength = 5;
+    BST<string> b2(testArray, testArrayLength);
+    expectedResult = "12345";
+    TreeVisitor::ResetSS();
+    b2.InorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == expectedResult);
+
+    cout << "b2 is now : " << endl;
+    cout << b2 << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -685,5 +700,6 @@ void testBSTAll() {
   test_rileyk9();
   test_wot01();
   test_rwarren201();
-	test_jhpp114();
+  test_jhpp114();
+  test_Brian-Hou();
 }

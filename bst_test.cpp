@@ -552,6 +552,67 @@ void test_rileyk9() {
   cout << "Done test_rileyk9()" << endl;
 }
 
+void test_wot01() {
+    BST<int> b1;
+    BST<string> b2;
+    b1.Add(6);
+    b1.Add(5);
+    b1.Add(4);
+    b1.Add(3);
+    b1.Add(2);
+    b1.Add(1);
+
+    b1.InorderTraverse(TreeVisitor::visitor);
+    string result = "123456";
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    b1.PostorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    b1.PreorderTraverse(TreeVisitor::visitor);
+    result = "654321";
+    assert(TreeVisitor::GetSS() == result);
+    TreeVisitor::ResetSS();
+
+    // Testing Rebalance for ints
+    std::cout << "b1 before rebalance:" << std::endl;
+    std::cout << b1 << std::endl;
+    b1.Rebalance();
+    std::cout << "b1 after rebalance:" << std::endl;
+    std::cout << b1 << std::endl;
+    b2.Add("b");
+    b2.Add("c");
+    b2.Add("d");
+    b2.Add("a");
+    b2.Add("x");
+
+    b2.InorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "abcdx");
+    TreeVisitor::ResetSS();
+
+    b2.PostorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "axdcb");
+    TreeVisitor::ResetSS();
+
+    b2.PreorderTraverse(TreeVisitor::visitor);
+    assert(TreeVisitor::GetSS() == "bacdx");
+    TreeVisitor::ResetSS();
+
+    // Testing Rebalance for strings
+    std::cout << "b2 before rebalance:" << std::endl;
+    std::cout << b2 << std::endl;
+    b2.Rebalance();
+    b2.Rebalance();
+    std::cout << "b2 after rebalance:" << std::endl;
+    std::cout << b2 << std::endl;
+    assert(b2.IsEmpty() == false);
+    b2.Remove("b");
+    std::cout << "b2 without b:" << std::endl;
+    std::cout << b2 << std::endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -571,4 +632,5 @@ void testBSTAll() {
   test_iqbalo01();
   test_msorvik01();
   test_rileyk9();
+  test_wot01();
 }

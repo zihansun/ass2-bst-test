@@ -1321,6 +1321,32 @@ void test_dariavo01(){
   cout << "Ending test_dariavo01" << endl;
 }
 
+void test_zsun4(){
+    cout<<"starting test_zsun4."<<endl;
+    cout<<"Testing constructors and copy constructions.\n";
+    BST<int> b1;
+    BST<int> b2(2);
+    BST<int> b3(b2);
+    cout<<"Adding new nodes to the b2 tree.\n";
+    b2.Add(4);
+    b2.Add(1);
+    b2.Add(10);
+    b2.Add(8);
+    b2.Add(-1);
+    b2.Add(3);
+    b2.Add(3);  // Adding duplicate element
+    cout<<b2;
+    cout << "The height is: " << b2.getHeight() << " \n";
+    cout << "The number of nodes is: " << b2.NumberOfNodes() << " \n";
+    assert(!b2.Contains(100)); 
+    string a[2,4,1,10,8,-1,3]
+    BST<int> a_tree(a,7);
+    assert(!a_tree.IsEmpty())
+    assert(a_tree == b2);
+    b2.remove(8);
+    assert(a_tree != b2);
+    cout<<"Nice Done!\nTest_zsun4 ends.\n";
+}
 	
 // Calling all test functions
 void testBSTAll() {
@@ -1362,6 +1388,7 @@ void testBSTAll() {
   test_ravi01();
   test_sep9201();
   test_dariavo01();
+  test_zsun4();
 }
 
 TEST_CASE("BST Tests") {

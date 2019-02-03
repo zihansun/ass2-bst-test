@@ -1289,6 +1289,37 @@ void test_sep9201() {
 
   cout << "Sepehr's tests ended." << endl;
 }
+	
+void test_dariavo01(){
+  cout << "\n\n* Starting test_dariavo01" << endl;
+  cout << "* Testing Add, IsEmpty and Contains" << endl;
+  BST <string> t;
+  assert(t.IsEmpty());
+  assert(!t.Contains("m"));
+
+  t.Add("d");
+  assert(t.Contains("d"));
+
+  t.Add("c");
+  t.Add("b");
+  assert(t.Contains("c"));
+  assert(t.Contains("b"));
+
+  t.Add("e");
+  t.Add("g");
+  t.Add("i");
+  assert(t.Contains("e"));
+  assert(t.Contains("g"));
+  assert(t.Contains("i"));
+
+  assert(!t.IsEmpty());
+
+  assert(!t.Contains("y"));
+  assert(!t.Contains("x"));
+  assert(!t.Contains("z"));
+
+  cout << "Ending test_dariavo01" << endl;
+}
 
 	
 // Calling all test functions
@@ -1330,6 +1361,7 @@ void testBSTAll() {
   test_danieljs01();
   test_ravi01();
   test_sep9201();
+  test_dariavo01();
 }
 
 TEST_CASE("BST Tests") {

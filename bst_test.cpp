@@ -989,6 +989,33 @@ void test_khiam01() {
 
   cout << "Ending test_khiam01" << endl;
 }
+	
+void test_kdukart() {
+    cout << "Starting test_kdukart" << endl;
+    BST<int> b1;
+    BST<int> b2(20);
+    BST<int> b3;
+    assert(b1.IsEmpty());
+    assert(!b2.IsEmpty());
+    assert(b1.getHeight() == 0);
+    assert(b2.getHeight() == 1);
+    b1.Add(20);
+    b3.Add(20);
+    assert(b1 == b2);
+    assert(b2 == b3);
+    b1.Add(40);
+    b1.Add(41);
+    b1.Add(42);
+    b1.Add(43);
+    b2.Add(43);
+    b2.Add(42);
+    b2.Add(41);
+    b2.Add(40);
+    b1.Rebalance();
+    b2.Rebalance();
+    assert(b1.getHeight() == b2.getHeight());
+    cout << "Ending test_kdukart" << endl;
+}
 
 void test_mkhsu01() {
   cout << "Starting test_mkhsu" << endl;
@@ -1110,6 +1137,7 @@ void testBSTAll() {
   test_bazenn01();
   test_khiam01();
   test_mkhsu01();
+  test_kdukart();
 }
 
 TEST_CASE("BST Tests") {

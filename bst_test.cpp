@@ -854,6 +854,22 @@ void test_jacoba25() {
   assert(!tree.contains(8));
 }
 
+// checking for adding duplicates
+void test_hsokol8() {
+  BST<int> b1;
+  BST<int> b2;
+
+  assert (b1 == b2);
+  b1.Add(4);
+  assert (b1 != b2);
+  b2.Add(4);
+  assert (b1 == b2);
+  b2.Add(4);
+  assert (b1 == b2);
+  b2.Remove(4);
+  assert (b1 != b2);
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -881,6 +897,7 @@ void testBSTAll() {
   test_jstew701();
   test_drewtre();
   test_jacoba25();
+  test_hsokol8();
 }
 
 TEST_CASE("BST Tests") {

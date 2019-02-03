@@ -784,6 +784,64 @@ void test_jstew701() {
   cout << "Ending test_jstew701" << endl;
 }
 
+//Tests from Drew Kwak. 	
+void test_drewtre(){
+  cout << "========================= My Tests =========================\n" << endl; 
+  BST<string> a1;
+  BST<string> a2;
+  BST<string> a3; 
+
+  assert(a3 == a3);
+
+  cout << "a3 is an empty tree" << endl; 
+  // == and != for empty trees
+  assert(a1 == a2 && (!(a1 != a2)));
+  a1.Add("c");
+  a2.Add("c");
+  // == and !- for 1-node trees a1, a2, a3
+  assert(a1 == a2 && (!(a1 != a2)));
+  a1.Add("a");
+  a1.Add("f");
+  a1.Add("g");
+  a1.Add("x");
+  a2.Add("a");
+  a2.Add("f");
+  a2.Add("g");
+  a2.Add("x");
+
+  // Testing various functions. 
+  cout << "a1 NumberOfNodes: "  << a1.NumberOfNodes() << endl; 
+  cout << "a3 NumberOfNodes: "  << a3.NumberOfNodes() << endl; 
+  cout << "a1 GetHeight: "      << a1.getHeight()     << endl; 
+  cout << "a3 GetHeight: "      << a3.getHeight()     << endl; 
+  cout << "a1 isEmpty: "        << a1.IsEmpty()       << endl; 
+  cout << "a3 isEmpty: "        << a3.IsEmpty()       << endl; 
+  cout << "a1 Contains a: "     << a1.Contains("a")   << endl; 
+  cout << "a1 Contains z: "     << a1.Contains("z")   << endl; 
+
+  BST<string> a4(a1);
+  cout << "Testing copy constructor, a4 copies a1"    << endl; 
+  cout << "a4 is: " << endl;
+  cout << a4 << endl;
+
+  cout << "Clearing a4\n";
+  a4.Clear(); 
+  assert(a4.IsEmpty() == 1);
+  cout << "Testing if a4 is empty: " << a4.IsEmpty()  << endl; 
+  cout << "a4 is: " << endl;
+  cout << a4 << endl;
+  
+
+  assert(a3 != a1); 
+  assert(a4 == a3);
+  cout << "a3 == a1 is: "       << (a3 == a1)         << endl; 
+  cout << "a4 == a3 is: "       << (a4 == a3)         << endl;
+  cout << "a3 != a1 is: "       << (a3 != a1)         << endl; 
+  cout << "a4 != a3 is: "       << (a4 != a3)         << endl;
+
+  cout << "\n"; 
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -809,6 +867,7 @@ void testBSTAll() {
   test_jhpp114();
   test_Brian-Hou();
   test_jstew701();
+  test_drewtre();
 }
 
 TEST_CASE("BST Tests") {

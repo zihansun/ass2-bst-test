@@ -1135,6 +1135,37 @@ void test_manvir() {
   cout << "Ending test_manvir" << endl;
 }
 	
+void test_emilylk() {
+    cout << "\n\n* Running test_emilylk" << endl;
+    BST<string> e1;
+    BST<string> e2;
+    assert(e1 == e2 && (!(e1 != e2)));
+    e1.Add("d");
+    e1.Add("b");
+    e1.Add("c");
+    e1.Add("g");
+    e1.Add("w");
+    cout << "e1 is: " << endl;
+    cout << e1 << endl;
+    cout << "e3 is a copy of e1" << endl;
+    BST<string> e3(e1);
+    assert(e1.NumberOfNodes() == 5);
+    assert(e1.getHeight() == 3);
+    assert(e1 == e3 && (!(e1 != e3)));
+    cout << "Remove c and w from e1" << endl;
+    e1.Remove("c");
+    e1.Remove("w");
+    assert(e1 != e3 && (!(e1 == e3)));
+    assert(e1.NumberOfNodes() == 3);
+    assert(e1.getHeight() == 2);
+    cout << "Clear e1" << endl;
+    e1.Clear();
+    assert(e1.IsEmpty());
+    assert(!e3.IsEmpty());
+    assert(e3.Contains("w") && e3.Contains("b"));
+    cout << "test_emilylk done" << endl;
+}
+	
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -1169,6 +1200,7 @@ void testBSTAll() {
   test_mkhsu01();
   test_kdukart();
   test_manvir();
+  test_emilylk();
 }
 
 TEST_CASE("BST Tests") {

@@ -679,6 +679,38 @@ void test_Brian-Hou() {
     cout << b2 << endl;
 }
 
+void test_jstew701() {
+  cout << "Starting test_jstew701" << endl;
+  cout << "* Testing Add, Contains, and Clear" << endl;
+  BST<string> b1;
+  BST<string> b2;
+
+  b1.Add("a");
+  b1.Add("f");
+  b1.Add("g");
+  b1.Add("x");
+
+  b2.Add("c");
+  b2.Add("a");
+  b2.Add("e");
+  b2.Add("d");
+
+  assert(b1.Contains("a"));
+  assert(b1.Contains("f"));
+  assert(b1.Contains("g"));
+  assert(b1.Contains("x"));
+  assert(!(b1.Contains("z")));
+  assert(b2.Contains("c"));
+  assert(b2.Contains("a"));
+  assert(b2.Contains("e"));
+  assert(b2.Contains("d"));
+  assert(!(b2.Contains("z")));
+
+  b1.Clear();
+  assert(b1.IsEmpty());
+  cout << "Ending test_jstew701" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -702,4 +734,5 @@ void testBSTAll() {
   test_rwarren201();
   test_jhpp114();
   test_Brian-Hou();
+  test_jstew701();
 }

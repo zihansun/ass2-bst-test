@@ -1244,6 +1244,31 @@ void test_emilylk() {
   	cout << "Ending test_danieljs01" << endl;
 }
 	
+void test_ravi01() {
+  cout << "Starting test_ravi" << endl;
+
+  BST<int> tree1;
+
+  tree1.Add(2);
+  tree1.Add(0);
+  tree1.Add(6);
+  tree1.Add(4);
+  tree1.Add(7);
+
+  assert(tree1.IsEmpty() == false);
+  assert(tree1.getHeight() == 3)
+  assert(tree1.NumberOfNodes() == 5);
+
+  tree1.Remove(4);
+  tree1.Remove(7);
+
+  assert(tree1.getHeight() == 2)
+  assert(tree1.NumberOfNodes() == 3);
+
+  cout << "Ending test_ravi" << endl;
+}
+
+	
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -1281,6 +1306,7 @@ void testBSTAll() {
   test_emilylk();
   test_leeh54();
   test_danieljs01();
+  test_ravi01();
 }
 
 TEST_CASE("BST Tests") {

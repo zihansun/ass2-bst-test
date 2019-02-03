@@ -1189,6 +1189,61 @@ void test_emilylk() {
         assert(t1.IsEmpty());
     }
 	
+	void test_danieljs01() {
+  	cout << "Starting test_danieljs" << endl;
+  	BST<int> b0;
+  	BST<int> b02(b0);
+
+  	BST<int> b1a(40);
+  	BST<int> b1a2(b1a);
+  	BST<int> b1b(60);
+
+  	BST<int> b2a(40);
+  	b2a.Add(20);
+  	BST<int> b2a2(b2a);
+
+  	BST<int> b2b(40);
+  	b2a.Add(30);
+
+  	BST<int> b2c(20);
+  	b2a.Add(40);
+
+  	BST<int> b3a(b2a);
+  	b3a.Add(25);
+  	BST<int> b3a2(b3a);
+
+  	BST<int> b3b(50);
+  	b3b.Add(20);
+  	b3b.Add(25);
+
+  	BST<int> b3c(25);
+  	b3c.Add(20);
+  	b3c.Add(40);
+
+  	assert(b0 == b02);
+  	assert(!(b0 == b1a));
+  	assert(!(b0 == b2a));
+  	assert(!(b0 == b3a));
+
+  	assert(b1a == b1a2);
+  	assert(!(b1a == b1b));
+
+  	assert(b2a == b2a2);
+  	assert(!(b2a == b2b));
+  	assert(!(b2a == b2c));
+
+  	assert(b3a == b3a2);
+  	assert(!(b3a == b3b));
+  	assert(!(b3a == b3c));
+
+  	assert(b0 == b0);
+  	assert(b1a == b1a);
+  	assert(b2a == b2a);
+  	assert(b3a == b3a);
+
+  	cout << "Ending test_danieljs01" << endl;
+}
+	
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -1225,6 +1280,7 @@ void testBSTAll() {
   test_manvir();
   test_emilylk();
   test_leeh54();
+  test_danieljs01();
 }
 
 TEST_CASE("BST Tests") {

@@ -1105,6 +1105,37 @@ void test_mkhsu01() {
   cout << "Ending test_mkhsu" << endl;
 }
 	
+void test_manvir() {
+  cout << "Starting test_manvir" << endl;
+  cout << "* Testing == and !=" << endl;
+
+  BST<int> BSTtree;
+  BST<int> BSTtree2;
+
+  BSTtree.Add("a");
+  BSTtree.Add("b");
+  BSTtree.Add("c");
+  BSTtree.Add("d");
+  BSTtree.Add("e");
+  BSTtree.Add("f");
+
+  assert(BSTtree.IsEmpty()==false);
+  assert(BSTtree.Contains("a"));
+
+  BSTtree.Remove("f");
+  BSTtree.Remove("e");
+  BSTtree.Remove("d");
+  BSTtree.Remove("c");
+  BSTtree.Remove("b");
+  BSTtree.Remove("a");
+
+
+  assert(BSTtree.IsEmpty()==true);
+  assert(BSTtree2.getHeight() == 0);
+
+  cout << "Ending test_manvir" << endl;
+}
+	
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -1138,6 +1169,7 @@ void testBSTAll() {
   test_khiam01();
   test_mkhsu01();
   test_kdukart();
+  test_manvir();
 }
 
 TEST_CASE("BST Tests") {

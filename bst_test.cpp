@@ -989,6 +989,94 @@ void test_khiam01() {
 
   cout << "Ending test_khiam01" << endl;
 }
+
+void test_mkhsu() {
+  cout << "Starting test_mkhsu" << endl;
+
+  BST<char> alphaTree;
+  alphaTree.Add('a');
+  alphaTree.Add('b');
+  alphaTree.Add('c');
+  alphaTree.Add('d');
+  alphaTree.Add('e');
+  alphaTree.Add('f');
+  alphaTree.Add('g');
+  alphaTree.Add('h');
+  alphaTree.Add('i');
+  alphaTree.Add('j');
+  alphaTree.Add('k');
+  alphaTree.Add('l');
+  alphaTree.Add('m');
+  alphaTree.Add('n');
+  alphaTree.Add('o');
+  alphaTree.Add('p');
+  alphaTree.Add('q');
+  alphaTree.Add('r');
+  alphaTree.Add('s');
+  alphaTree.Add('t');
+  alphaTree.Add('u');
+  alphaTree.Add('v');
+  alphaTree.Add('w');
+  alphaTree.Add('x');
+  alphaTree.Add('y');
+  alphaTree.Add('z');
+
+  assert(alphaTree.NumberOfNodes() == 26);
+  assert(alphaTree.getHeight() == 26);
+
+  TreeVisitor::ResetSS();
+  alphaTree.InorderTraverse(TreeVisitor::visitor);
+  string result = "abcdefghijklmnopqrstuvwxyz";
+
+  assert(TreeVisitor::GetSS() == result);
+
+  alphaTree.Rebalance();
+  assert(alphaTree.NumberOfNodes() == 26);
+  assert(alphaTree.getHeight() == 5);
+
+
+  string randAlpha = "ycfmhokpldnuraztiwbjqxvesg";
+  const char *c_str_randAlpha = randAlpha.c_str();
+
+  BST<char> alphaTree2(c_str_randAlpha, 26);
+  assert(alphaTree2.NumberOfNodes() == 26);
+  assert(alphaTree2.getHeight() == 5);
+
+  assert(alphaTree == alphaTree2);
+
+  BST<char> alphaTree3;
+  alphaTree3.Add('n');
+  alphaTree3.Add('u');
+  alphaTree3.Add('g');
+  alphaTree3.Add('d');
+  alphaTree3.Add('k');
+  alphaTree3.Add('r');
+  alphaTree3.Add('x');
+  alphaTree3.Add('w');
+  alphaTree3.Add('z');
+  alphaTree3.Add('t');
+  alphaTree3.Add('p');
+  alphaTree3.Add('f');
+  alphaTree3.Add('b');
+  alphaTree3.Add('i');
+  alphaTree3.Add('m');
+  alphaTree3.Add('y');
+  alphaTree3.Add('s');
+  alphaTree3.Add('l');
+  alphaTree3.Add('e');
+  alphaTree3.Add('a');
+  alphaTree3.Add('h');
+  alphaTree3.Add('o');
+  alphaTree3.Add('v');
+  alphaTree3.Add('q');
+  alphaTree3.Add('j');
+  alphaTree3.Add('c');
+
+  assert(alphaTree == alphaTree3);
+  assert(alphaTree3 == alphaTree2);
+
+  cout << "Ending test_mkhsu" << endl;
+}
 	
 // Calling all test functions
 void testBSTAll() {
@@ -1021,6 +1109,7 @@ void testBSTAll() {
   test_codyt23();
   test_bazenn01();
   test_khiam01();
+  test_mkhsu();
 }
 
 TEST_CASE("BST Tests") {

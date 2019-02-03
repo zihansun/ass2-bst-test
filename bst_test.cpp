@@ -1268,6 +1268,28 @@ void test_ravi01() {
   cout << "Ending test_ravi" << endl;
 }
 
+void test_sep9201() {
+  cout << "Sepehr's tests are starting..." << endl;
+
+  BST<char> myNameTree;
+  myNameTree.Add('s');
+  myNameTree.Add('e');
+  myNameTree.Add('p');
+  myNameTree.Add('e');
+  myNameTree.Add('h');
+  myNameTree.Add('r');
+
+  assert(!myNameTree.IsEmpty());
+  assert(myNameTree.NumberOfNodes() == 6);
+  assert(myNameTree.Contains('s'));
+  assert(!myNameTree.Contains('a'));
+  assert(myNameTree.Remove('s'));
+  assert(!myNameTree.Contains('s'));
+  assert(myNameTree.NumberOfNodes() == 5);
+
+  cout << "Sepehr's tests ended." << endl;
+}
+
 	
 // Calling all test functions
 void testBSTAll() {
@@ -1307,6 +1329,7 @@ void testBSTAll() {
   test_leeh54();
   test_danieljs01();
   test_ravi01();
+  test_sep9201();
 }
 
 TEST_CASE("BST Tests") {

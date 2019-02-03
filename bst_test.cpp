@@ -869,6 +869,69 @@ void test_hsokol8() {
   b2.Remove(4);
   assert (b1 != b2);
 }
+	
+void test_codyt23(){
+    // Create degenerate tree
+    BST<double> CodysTree;
+    CodysTree.Add(.9);
+    CodysTree.Add(.8);
+    CodysTree.Add(.7);
+    CodysTree.Add(.6);
+    CodysTree.Add(.5);
+    CodysTree.Add(.4);
+    CodysTree.Add(.3);
+    CodysTree.Add(.2);
+    CodysTree.Add(.1);
+    CodysTree.Add(.01);
+    CodysTree.Add(.001);
+    CodysTree.Add(.0001);
+    CodysTree.Add(.00001);
+    CodysTree.Add(.000001);
+    CodysTree.Add(-.1);
+
+    // Validate that add worked correctly
+    assert(CodysTree.getHeight() == 15);
+    assert(CodysTree.IsEmpty() == false);
+    assert(CodysTree.Contains(1) == false);
+    assert(CodysTree.Contains(.5) == true);
+    assert(CodysTree.Contains(-.1) == true);
+
+    // Check copy constructor
+    BST<double> CodysTree2 = BST<double>(CodysTree);
+    assert(CodysTree.NumberOfNodes() == CodysTree2.NumberOfNodes());
+    assert(CodysTree.Contains(.2) == true);
+    assert(CodysTree.Contains(.0001) == true);
+    assert(CodysTree2.Contains(.2) == true);
+    assert(CodysTree.Contains(.0001) == true);
+
+    // Check == (and further check copy constructor)
+    assert((CodysTree == CodysTree2) == true);
+
+    // Check Rebalance()
+    CodysTree.Rebalance();
+    assert(CodysTree.getHeight() == 4);
+    assert(CodysTree.Contains(.2) == true);
+
+    // Check !=
+    assert((CodysTree != CodysTree2) == true);
+
+    // Validate remove
+    // Attempt to remove a value not in the tree
+    CodysTree.Remove(100);
+    // Remove a leaf node from the tree
+    CodysTree.Remove(-.1);
+    // Remove a node with 1 child
+    CodysTree.Remove(.000001);
+    // Remove a node with 2 children
+    CodysTree.Remove(.8);
+    assert(CodysTree.Contains(-.1) == false);
+    assert(CodysTree.Contains(.000001) == false);
+    assert(CodysTree.Contains(.8) == false);
+    assert(CodysTree.Contains(.00001) == true);
+    assert(CodysTree.Contains(.7) == true);
+    assert(CodysTree.Contains(.9) == true);
+}
+
 
 // Calling all test functions
 void testBSTAll() {
@@ -898,6 +961,7 @@ void testBSTAll() {
   test_drewtre();
   test_jacoba25();
   test_hsokol8();
+  test_codyt23();
 }
 
 TEST_CASE("BST Tests") {

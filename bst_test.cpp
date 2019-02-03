@@ -990,7 +990,7 @@ void test_khiam01() {
   cout << "Ending test_khiam01" << endl;
 }
 
-void test_mkhsu() {
+void test_mkhsu01() {
   cout << "Starting test_mkhsu" << endl;
 
   BST<char> alphaTree;
@@ -1109,7 +1109,7 @@ void testBSTAll() {
   test_codyt23();
   test_bazenn01();
   test_khiam01();
-  test_mkhsu();
+  test_mkhsu01();
 }
 
 TEST_CASE("BST Tests") {

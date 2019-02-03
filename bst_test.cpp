@@ -1165,6 +1165,29 @@ void test_emilylk() {
     assert(e3.Contains("w") && e3.Contains("b"));
     cout << "test_emilylk done" << endl;
 }
+    void test_leeh54() {
+        cout << "Test leeh54 begins..." << endl;
+        BST<int> t1;
+        t1.Add(5);
+        t1.Add(3);
+        t1.Add(7);
+        t1.Add(4);
+        t1.Add(2);
+        t1.Add(1);
+        t1.Add(8);
+        t1.Add(6);
+        assert(t1.NumberOfNodes() == 8);
+        assert(t1.getHeight() == 4);
+        assert(t1.IsEmpty() != true);
+        t1.Remove(3);
+        t1.Remove(7);
+        t1.Remove(1);
+        assert(t1.getHeight() == 3);
+        assert(t1.Contains(3) == false);
+        assert(t1.Contains(5) == true);
+        t1.Clear();
+        assert(t1.IsEmpty());
+    }
 	
 // Calling all test functions
 void testBSTAll() {
@@ -1201,6 +1224,7 @@ void testBSTAll() {
   test_kdukart();
   test_manvir();
   test_emilylk();
+  test_leeh54();
 }
 
 TEST_CASE("BST Tests") {

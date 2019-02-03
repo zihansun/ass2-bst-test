@@ -57,6 +57,11 @@ class TreeVisitor {
   static void visitor(const int &item) {
     SS << item;
   }
+
+  // instead of cout, insert item into a string stream
+  static void visitor(const char &item) {
+    SS << item;
+  }
 };
 
 // initialize the static variable
@@ -634,6 +639,71 @@ void test_rwarren201() {
     cout << "...Done testBSTClear" << endl;
 }
 
+// Tests by Josh Max
+void test_joshumax() {
+    cout << "Starting " << __func__ << endl;
+    // Type construction
+    BST<int> bi;
+    BST<string> bs;
+    BST<bool> bb;
+    BST<char> bc;
+
+    // Integer tests
+    bi.Add(1);
+    bi.Add(2);
+    bi.Add(4);
+    bi.Add(8);
+    bi.Add(16);
+    bi.Add(32);
+    bi.Add(32);
+
+    TreeVisitor::ResetSS();
+    bi.InorderTraverse(TreeVisitor::visitor);
+    string result = "12481632";
+    assert(TreeVisitor::GetSS() == result);
+
+    // String tests
+    bs.Add("a");
+    bs.Add("b");
+    bs.Add("c");
+    bs.Add("d");
+    bs.Add("e");
+    bs.Add("f");
+    bs.Add("g");
+
+    TreeVisitor::ResetSS();
+    bs.InorderTraverse(TreeVisitor::visitor);
+    result = "abcdefg";
+    assert(TreeVisitor::GetSS() == result);
+
+    // Boolean tests (not really useful for a BST
+    // but still something good to test)
+    bb.Add(false);
+    bb.Add(true);
+
+    TreeVisitor::ResetSS();
+    bc.InorderTraverse(TreeVisitor::visitor);
+    result = "01"; // Print them out as (0,1)
+    assert(TreeVisitor::GetSS() == result);
+
+    // Char tests
+    bc.Add('h');
+    bc.Add('i');
+    bc.Add('j');
+    bc.Add('k');
+    bc.Add('l');
+    bc.Add('m');
+    bc.Add('n');
+
+    TreeVisitor::ResetSS();
+    bc.InorderTraverse(TreeVisitor::visitor);
+    result = "hijklmn";
+    assert(TreeVisitor::GetSS() == result);
+
+    // Done
+    cout << "Ending " << __func__ << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -655,6 +725,7 @@ void testBSTAll() {
   test_rileyk9();
   test_wot01();
   test_rwarren201();
+  test_joshumax();
 }
 
 TEST_CASE("BST Tests") {

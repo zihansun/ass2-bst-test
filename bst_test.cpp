@@ -842,6 +842,18 @@ void test_drewtre(){
   cout << "\n"; 
 }
 
+void test_jacoba25() {
+  cout << "Jacob's tests are starting" << endl;
+  int arr[7] = {1, 2, 3, 4, 5, 6, 7};
+  BST<int> tree(arr, 7);
+
+  assert(tree.isEmpty() == false);
+  assert(tree.getHeight() == 3);
+  assert(tree.contains(1));
+  assert(tree.contains(7));
+  assert(!tree.contains(8));
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -868,6 +880,7 @@ void testBSTAll() {
   test_Brian-Hou();
   test_jstew701();
   test_drewtre();
+  test_jacoba25();
 }
 
 TEST_CASE("BST Tests") {

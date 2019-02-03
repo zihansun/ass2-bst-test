@@ -640,7 +640,7 @@ void test_rwarren201() {
 }
 
 // Tests by Josh Max
-void test_joshumax() {
+void test_joshumax01() {
     cout << "Starting " << __func__ << endl;
     // Type construction
     BST<int> bi;
@@ -737,7 +737,7 @@ void test_jhpp114() {
   cout << "Ending test_jhpp114" << endl;
 }
 
-void test_Brian-Hou() {
+void test_BrianHou() {
     cout << "Testing Constructor passing in an array and int" << endl;
     cout << "Also tests InorderTraveral in the process!" << endl;
     string testArray[5] = {"3", "2", "1", "4", "5"};
@@ -1099,9 +1099,9 @@ void testBSTAll() {
   test_rileyk9();
   test_wot01();
   test_rwarren201();
-  test_joshumax();
+  test_joshumax01();
   test_jhpp114();
-  test_Brian-Hou();
+  test_BrianHou();
   test_jstew701();
   test_drewtre();
   test_jacoba25();

@@ -962,6 +962,33 @@ void test_bazenn01() {
 
     cout << "Ending test_bazen01" << endl;
 }
+
+//Test by Khiam Rehman	
+void test_khiam01() {
+  cout << "Starting test_khiam01" << endl;
+  cout << "Testing numberOfNodes()" << endl;
+
+  BST<int> testTree;
+  testTree.Add(15);
+  testTree.Add(65);
+  testTree.Add(17);
+  testTree.Add(75);
+  testTree.Add(96);
+  testTree.Add(12);
+  testTree.Add(45);
+  testTree.Add(32);
+  testTree.Add(11);
+  testTree.Add(71);
+  assert(testTree.NumberOfNodes() == 10);
+
+  testTree.Remove(45);
+  testTree.Remove(32);
+  testTree.Remove(11);
+  testTree.Remove(11);
+  assert(testTree.NumberOfNodes() == 7)
+
+  cout << "Ending test_khiam01" << endl;
+}
 	
 // Calling all test functions
 void testBSTAll() {
@@ -993,6 +1020,7 @@ void testBSTAll() {
   test_hsokol8();
   test_codyt23();
   test_bazenn01();
+  test_khiam01();
 }
 
 TEST_CASE("BST Tests") {

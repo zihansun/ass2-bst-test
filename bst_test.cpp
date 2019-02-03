@@ -1107,7 +1107,6 @@ void test_mkhsu01() {
 	
 void test_manvir() {
   cout << "Starting test_manvir" << endl;
-  cout << "* Testing == and !=" << endl;
 
   BST<int> BSTtree;
   BST<int> BSTtree2;
